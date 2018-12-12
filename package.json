@@ -1,0 +1,26 @@
+{
+  "name": "sport-events-and-players-management-platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shyaman/Sport-events-and-players-management-platform.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shyaman/Sport-events-and-players-management-platform/issues"
+  },
+  "homepage": "https://github.com/shyaman/Sport-events-and-players-management-platform#readme",
+  "dependencies": {
+    "next": "^7.0.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3"
+  }
+}
