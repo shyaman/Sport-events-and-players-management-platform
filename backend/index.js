@@ -1,34 +1,32 @@
 const express = require('express')
 const next = require('next')
-const config = require('config');
 const port = process.env.PORT || 3000
 const dev = process.env.NODE_ENV !== 'production'
 
 
 const server = express()
 const matchRoute = require('./routes/matches')
-server.use('/api', matchRoute)
 
-if (config.util.getEnv('NODE_ENV') !== 'test') {
-  const app = next({ dev })
-  const handle = app.getRequestHandler()
-  app.prepare()
-    .then(() => {
+const app = next({ dev })
+const handle = app.getRequestHandler()
 
-      server.get('*', (req, res) => {
-        return handle(req, res)
-      })
+app.prepare()
+  .then(() => {
 
-      server.listen(port, (err) => {
-        if (err) throw err
-        console.log(`> Ready on http://localhost:${port}`)
-      })
+    server.use('/api', matchRoute)
+
+    server.get('*', (req, res) => {
+      return handle(req, res)
     })
-    .catch(ex => {
-      console.error(ex.stack);
-      process.exit(1);
-    })
-}
 
+    server.listen(port, (err) => {
+      if (err) throw err
+      console.log(`> Ready on http://localhost:${port}`)
+    })
+  })
+  .catch(ex => {
+    console.error(ex.stack);
+    process.exit(1);
+  })
 
 module.exports = server;

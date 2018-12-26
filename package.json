@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/shyaman/Sport-events-and-players-management-platform#readme",
   "dependencies": {
-    "config": "^3.0.0",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "next": "^7.0.2",
     "react": "^16.6.3",

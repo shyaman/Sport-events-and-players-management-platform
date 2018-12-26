@@ -1,5 +1,4 @@
 process.env.NODE_ENV = 'test';
-process.env.SUPPRESS_NO_CONFIG_WARNING = true;
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 let should = chai.should();
