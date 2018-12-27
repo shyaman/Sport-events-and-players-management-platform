@@ -6,7 +6,6 @@ const img = {
 
 export default () => (
     <Layout>
-       {/* <p>This is the news page</p> */}
 		{/* <div id="adbanner">
 			<div id="ad">
 				<a href="#"><p>Advertise Here</p></a>
