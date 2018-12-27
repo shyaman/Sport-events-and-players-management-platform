@@ -1,9 +1,5 @@
 import Layout from '../components/Layout.js';
 
-const img = {
-	border: 'none'
-};
-
 export default () => (
     <Layout>
 		{/* <div id="adbanner">
