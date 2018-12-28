@@ -29,6 +29,7 @@
     "react-dom": "^16.6.3"
   },
   "devDependencies": {
+    "@zeit/next-css": "^1.0.1",
     "chai": "^4.2.0",
     "chai-http": "^4.2.0",
     "mocha": "^5.2.0",
