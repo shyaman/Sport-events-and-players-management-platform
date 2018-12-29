@@ -22,8 +22,8 @@ export default () => (
                 <div className="fh5co-footer">
                     <p>
                         <small>&copy; 2018 PeraSports, UOP. All Rights Reserved.
-                            <span>Designed by <a href="http://freehtml5.co/" target="_blank">Engineering Faculty, UOP</a> </span>
-                            <span>Images: <a href="http://pexels.com/" target="_blank">Pera Beats</a></span>
+                            <span>Designed by <a href= "http://www.ce.pdn.ac.lk/" target="_blank">Engineering Faculty, UOP</a> </span>
+                            <span>Images: <a href="https://www.facebook.com/perabeatspage/" target="_blank">Pera Beats</a></span>
                         </small>
                     </p>
                     <ul>
