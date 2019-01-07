@@ -7,7 +7,6 @@ const JWT_KEY = process.env.JWT_KEY || 'test123@#'
 module.exports = function (router) {
 
     router.post("/admin_token", function (req, res) {
-
         if(req.body.auth && req.body.auth.username && req.body.auth.password){
             Admin.findOne({ username: req.body.auth.username }, (err, user) => {
 
@@ -35,13 +34,12 @@ module.exports = function (router) {
                 }
             });
         }else{
-            res.status(500).send({ error: 'Something failed!' })
+            res.status(500).json({ 'response': "Something failed!", 'res': false });
         }
         
     })
 
     router.post("/admin_register", function (req, res) {
-
         if(req.body.user && req.body.user.name && req.body.user.username && req.body.user.password){
             
             Admin.find({username:req.body.user.username},function(err,users){

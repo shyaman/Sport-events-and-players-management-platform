@@ -1,9 +1,9 @@
 import { Component } from "react";
-import Layout from '../../components/Layout.js';
-import { getCookie, removeCookie } from "../../lib/session";
-import { signIn, redirectIfAuthenticated } from "../../lib/auth";
-import Success from "../../components/Success";
-import Error from "../../components/Error";
+import Layout from '../components/Layout.js';
+import { getCookie, removeCookie } from "../lib/session";
+import { signIn, redirectIfAuthenticated } from "../lib/auth";
+import Success from "../components/Success";
+import Error from "../components/Error";
 
 export default class Login extends Component {
   constructor(props) {
@@ -13,11 +13,13 @@ export default class Login extends Component {
     };
   }
   static getInitialProps(ctx) {
+
     if (redirectIfAuthenticated(ctx)) {
       return {};
     }
 
     const success = getCookie("success", ctx.req);
+
     if (success) {
       removeCookie("success");
     }
@@ -138,7 +140,7 @@ export default class Login extends Component {
     );
   }
 
-  static async handleSubmit(e) {
+  handleSubmit = async e => {
     e.preventDefault();
 
     const username = e.target.elements.username.value;

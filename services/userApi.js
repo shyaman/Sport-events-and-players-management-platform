@@ -13,7 +13,7 @@ export const createUser = async (
         password
       }
     });
-    return response;
+    return response.data;
   } catch (error) {
     return error.response && error.response.status === 422
       ? "username is already taken."

@@ -8,7 +8,7 @@ export const authenticate = async (username, password) => {
         password
       }
     });
-    return res;
+    return res.data;
   } catch (error) {
     return error.response && error.response.status === 500
       ? "Wrong email/password"

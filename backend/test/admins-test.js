@@ -28,7 +28,7 @@ describe('Admin endpoint', () => {
                 .end((err, res) => {
                     res.should.have.status(500);
                     res.body.should.be.a('object');
-                    res.body.should.have.property('error').eql('Something failed!');
+                    res.body.should.have.property('response').eql('Something failed!');
                     done();
                 });
         });
