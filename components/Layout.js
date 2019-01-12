@@ -2,7 +2,7 @@ import Header from './Header'
 
 const Layout = (props) => (
     <div >
-        <Header />
+        <Header authenticated={props.authenticated} />
         {props.children}
     </div>
 )

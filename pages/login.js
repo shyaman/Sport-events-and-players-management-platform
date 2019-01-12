@@ -4,6 +4,7 @@ import { getCookie, removeCookie } from "../lib/session";
 import { signIn, redirectIfAuthenticated } from "../lib/auth";
 import Success from "../components/Success";
 import Error from "../components/Error";
+import { isAuthenticated } from "../lib/auth";
 
 export default class Login extends Component {
   constructor(props) {
@@ -23,16 +24,18 @@ export default class Login extends Component {
     if (success) {
       removeCookie("success");
     }
+
     return {
+      authenticated: isAuthenticated(ctx),
       success
     };
   }
 
   render() {
-    const { url, success } = this.props;
+    const { url, success, authenticated } = this.props;
     const { error } = this.state;
     return (
-      <Layout>
+      <Layout authenticated={authenticated}>
         {success && <Success message={success} />}
         {error && <Error message={error} />}
         <div className="login-page">

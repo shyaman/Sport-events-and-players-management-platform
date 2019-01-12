@@ -1,8 +1,9 @@
 import Layout from '../components/Layout.js';
 import fetch from 'isomorphic-unfetch'
+import { isAuthenticated } from "../lib/auth";
 
 const Index = (props) => (
-    <Layout>
+    <Layout authenticated={props.authenticated}>
         <div id="secwrapper">
             <section>
                 {props.news.map((news) => (
@@ -214,14 +215,15 @@ const Index = (props) => (
     </Layout>
 )
 
-Index.getInitialProps = async function () {
+Index.getInitialProps = async function (ctx) {
     const res = await fetch('http://localhost:3000/api/news')
     const data = await res.json()
 
-    console.log(`Show data fetched. Count: ${data.length}`)
+    // console.log(`Show data fetched. Count: ${data.length}`)
 
     return {
-        news: data
+        news: data,
+        authenticated: isAuthenticated(ctx)
     }
 }
 
