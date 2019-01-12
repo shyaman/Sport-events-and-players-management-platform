@@ -9,7 +9,7 @@ const Header = (props) => (
                 <ul>
                     <li><Link href="/news"><a>news &amp; events</a></Link></li>
                     <li><Link href="/photos"><a>photo gallery</a></Link></li>
-                    <li><Link href="/shedules"><a>schedules</a></Link></li>
+                    <li><Link href="/schedules"><a>schedules</a></Link></li>
                     {!props.authenticated &&
                     <li><Link href="/login"><a>Login</a></Link></li>}
                     {props.authenticated &&

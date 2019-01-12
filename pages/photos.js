@@ -3,8 +3,8 @@ import Layout from '../components/Layout.js';
 export default () => (
     <Layout> 
         <div id="fh5co-page">
-            <a href="#" className="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-            <aside id="fh5co-aside" role="complementary" className="border js-fullheight">
+            {/* <a href="#" className="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a> */}
+            {/* <aside id="fh5co-aside" role="complementary" className="border js-fullheight">
 
                 <h1 id="fh5co-logo"><a href="index.html">
                     <img src="../static/logo-colored.png" alt=""/>
@@ -34,7 +34,7 @@ export default () => (
                     </ul>
                 </div>
 
-            </aside>
+            </aside> */}
 
             <div id="fh5co-main">
                 <div className="fh5co-gallery">
@@ -428,7 +428,7 @@ export default () => (
             }
         
             #fh5co-main {
-                width: 85%;
+                width: 100%;
                 float: right;
                 -webkit-transition: 0.5s;
                 -o-transition: 0.5s;
@@ -446,7 +446,6 @@ export default () => (
             }
             #fh5co-main .fh5co-narrow-content {
                 position: relative;
-                width: 80%;
                 margin: 0 auto;
                 padding: 4em 0;
             }
