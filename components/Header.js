@@ -11,7 +11,7 @@ const Header = () => (
                     <li><Link href="/photos"><a>photo gallery</a></Link></li>
                     <li><Link href="/sports"><a>sports</a></Link></li>
                     <li><Link href="/community"><a>community</a></Link></li>
-                    <li><Link href="/shedules"><a>schedules</a></Link></li>
+                    <li><Link href="/schedules"><a>schedules</a></Link></li>
                 </ul>
                 {/* <div class="cl">&nbsp;</div> */}
             </div>
