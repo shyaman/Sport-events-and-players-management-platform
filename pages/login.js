@@ -5,6 +5,7 @@ import { signIn, redirectIfAuthenticated } from "../lib/auth";
 import Success from "../components/Success";
 import Error from "../components/Error";
 import { isAuthenticated } from "../lib/auth";
+import Link from 'next/link'
 
 export default class Login extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ export default class Login extends Component {
               <input type="text" placeholder="username" name="username" />
               <input type="password" placeholder="password" name="password" />
               <button>login</button>
+              <p className="message">Not registered? <Link href="/register"><a>Create an account</a></Link></p>
             </form>
           </div>
         </div>
@@ -93,6 +95,17 @@ export default class Login extends Component {
         .form button:hover,.form button:active,.form button:focus {
           background: #43A047;
         }
+
+        .form .message {
+          margin: 15px 0 0;
+          color: #b3b3b3;
+          font-size: 12px;
+        }
+        .form .message a {
+          color: #4CAF50;
+          text-decoration: none;
+        }
+        
         .container {
           position: relative;
           z-index: 1;
