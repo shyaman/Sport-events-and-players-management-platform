@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 
-const Header = () => (
+const Header = (props) => (
     <div>
         <div id="navigation">
             <div className="shell">
@@ -9,9 +9,11 @@ const Header = () => (
                 <ul>
                     <li><Link href="/news"><a>news &amp; events</a></Link></li>
                     <li><Link href="/photos"><a>photo gallery</a></Link></li>
-                    <li><Link href="/sports"><a>sports</a></Link></li>
-                    <li><Link href="/community"><a>community</a></Link></li>
                     <li><Link href="/shedules"><a>schedules</a></Link></li>
+                    {!props.authenticated &&
+                    <li><Link href="/login"><a>Login</a></Link></li>}
+                    {props.authenticated &&
+                    <li><Link href="/logout"><a>Logout</a></Link></li>}
                 </ul>
                 {/* <div class="cl">&nbsp;</div> */}
             </div>
