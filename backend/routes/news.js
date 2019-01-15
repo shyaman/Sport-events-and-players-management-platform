@@ -10,9 +10,12 @@ module.exports = function (router) {
         })
     });
 
+
     router.post("/news", function (req, res) {
-        var newEvent = new News(req.body);
+        var newEvent = new News(req.body.news);
+
         newEvent.save((err, news) => {
+
             if (err) {
                 res.send(err)
             } else {
