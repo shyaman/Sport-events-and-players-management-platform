@@ -12,8 +12,7 @@ module.exports = function (router) {
 
 
     router.post("/news", function (req, res) {
-        var newEvent = new News(req.body.news);
-
+        var newEvent = new News(req.body);
         newEvent.save((err, news) => {
 
             if (err) {

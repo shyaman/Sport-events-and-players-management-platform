@@ -358,7 +358,7 @@ export default class News extends Component {
         const description = e.target.elements.description.value;
     
         const res = await addNews(title, description);
-        if (res) {
+        if (!res.news) {
           this.setState({
             error:"Required field is missing!"
           });

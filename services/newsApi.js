@@ -3,10 +3,8 @@ import { post } from "../lib/request";
 export const addNews = async (title, description) => {
   try {
     const res = await post("/news", {
-        news: {
         name: title,
         description,
-      }
     });
 
     return res.data;
