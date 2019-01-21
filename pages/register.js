@@ -1,41 +1,44 @@
 import { Component } from "react";
 import Layout from '../components/Layout.js';
 import Error from "../components/Error";
-import { signUp, redirectIfAuthenticated } from "../lib/auth";
+import { signUp, redirectIfAuthenticated, isAuthenticated } from "../lib/auth";
 import Link from 'next/link'
 
 export default class Login extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          error: null
-        };
-      }
-      static getInitialProps(ctx) {
-        redirectIfAuthenticated(ctx);
-        return {};
-      }
-    
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null
+    };
+  }
+  static getInitialProps(ctx) {
+    // redirectIfAuthenticated(ctx);
+    return {
+      authenticated: isAuthenticated(ctx)
 
-    render() {
-        const { url } = this.props;
-        const { error } = this.state;
-        return (
-            <Layout>
-                {error && <Error message={error} />}
-                <div className="login-page">
-                    <div className="form">
-                        <form className="register-form" onSubmit={this.handleSubmit}>
-                            <input type="text" placeholder="name" name="name"/>
-                            <input type="text" placeholder="username" name="username"/>
-                            <input type="password" placeholder="password" name="password"/>
-                            <input type="password" placeholder="Enter password again" name="password_confirmation"/>
-                            <button>create</button>
-                            <p className="message">Already registered? <Link href="/login"><a>Sign In</a></Link></p>
-                        </form>
-                    </div>
-                </div>
-                <style jsx>{`
+    };
+  }
+
+
+  render() {
+    const { url, authenticated } = this.props;
+    const { error } = this.state;
+    return (
+      <Layout authenticated={authenticated}>
+        {error && <Error message={error} />}
+        <div className="login-page">
+          <div className="form">
+            <form className="register-form" onSubmit={this.handleSubmit}>
+              <input type="text" placeholder="name" name="name" />
+              <input type="text" placeholder="username" name="username" />
+              <input type="password" placeholder="password" name="password" />
+              <input type="password" placeholder="Enter password again" name="password_confirmation" />
+              <button>create</button>
+              {/* <p className="message">Already registered? <Link href="/login"><a>Sign In</a></Link></p> */}
+            </form>
+          </div>
+        </div>
+        <style jsx>{`
         @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
         .login-page {
@@ -134,27 +137,27 @@ export default class Login extends Component {
           -moz-osx-font-smoothing: grayscale;      
         }
         `}
-                </style>
+        </style>
 
-            </Layout >
-        );
+      </Layout >
+    );
+  }
+
+  handleSubmit = async e => {
+    e.preventDefault();
+
+    const name = e.target.elements.name.value;
+    const username = e.target.elements.username.value;
+    const password = e.target.elements.password.value;
+    const password_confirmation = e.target.elements.password_confirmation.value;
+
+    const error = await signUp(name, username, password, password_confirmation);
+
+    if (error) {
+      this.setState({
+        error
+      });
+      return false;
     }
-
-    handleSubmit = async e => {
-        e.preventDefault();
-    
-        const name = e.target.elements.name.value;
-        const username = e.target.elements.username.value;
-        const password = e.target.elements.password.value;
-        const password_confirmation = e.target.elements.password_confirmation.value;
-    
-        const error = await signUp(name, username, password, password_confirmation);
-    
-        if (error) {
-          this.setState({
-            error
-          });
-          return false;
-        }
-      };
+  };
 }

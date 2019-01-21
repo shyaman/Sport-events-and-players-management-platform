@@ -2,7 +2,7 @@ import Layout from '../components/Layout.js';
 import fetch from 'isomorphic-unfetch'
 import { Component } from "react";
 import { isAuthenticated } from "../lib/auth";
-import {addNews} from "../services/newsApi"
+import { addNews } from "../services/newsApi"
 import Error from "../components/Error";
 import redirect from "../lib/redirect";
 
@@ -11,7 +11,7 @@ export default class News extends Component {
         super(props);
         this.state = {
             error: null
-          };
+        };
     }
 
     static getInitialProps = async function (ctx) {
@@ -27,8 +27,8 @@ export default class News extends Component {
     }
 
     render() {
-        const { news ,authenticated } = this.props;
-        const { error } = this.state;        
+        const { news, authenticated } = this.props;
+        const { error } = this.state;
         return (
             <Layout authenticated={authenticated}>
                 {error && <Error message={error} />}
@@ -354,18 +354,18 @@ export default class News extends Component {
 
     handleSubmit = async e => {
         e.preventDefault();
-    
+
         const title = e.target.elements.title.value;
         const description = e.target.elements.description.value;
-    
+
         const res = await addNews(title, description);
         if (!res.news) {
-          this.setState({
-            error:"Required field is missing!"
-          });
-          return false;
+            this.setState({
+                error: "Required field is missing!"
+            });
+            return false;
         }
         redirect("/news");
-      };
+    };
 
 }

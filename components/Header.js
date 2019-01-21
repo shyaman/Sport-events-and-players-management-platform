@@ -14,6 +14,8 @@ const Header = (props) => (
                     <li><Link href="/login"><a>Login</a></Link></li>}
                     {props.authenticated &&
                     <li><Link href="/logout"><a>Logout</a></Link></li>}
+                    {props.authenticated &&
+                    <li><Link href="/register"><a>Admin register</a></Link></li>}
                 </ul>
                 {/* <div class="cl">&nbsp;</div> */}
             </div>

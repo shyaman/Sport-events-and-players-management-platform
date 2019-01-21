@@ -45,7 +45,7 @@ export default class Login extends Component {
               <input type="text" placeholder="username" name="username" />
               <input type="password" placeholder="password" name="password" />
               <button>login</button>
-              <p className="message">Not registered? <Link href="/register"><a>Create an account</a></Link></p>
+              {/* <p className="message">Not registered? <Link href="/register"><a>Create an account</a></Link></p> */}
             </form>
           </div>
         </div>
