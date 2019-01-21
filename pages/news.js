@@ -4,6 +4,7 @@ import { Component } from "react";
 import { isAuthenticated } from "../lib/auth";
 import {addNews} from "../services/newsApi"
 import Error from "../components/Error";
+import redirect from "../lib/redirect";
 
 export default class News extends Component {
     constructor(props) {
@@ -364,6 +365,7 @@ export default class News extends Component {
           });
           return false;
         }
+        redirect("/news");
       };
 
 }

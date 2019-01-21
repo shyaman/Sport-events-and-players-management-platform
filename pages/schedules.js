@@ -62,7 +62,7 @@ export default () => (
 									<strong>Days</strong> : Monday, Wednesday, Friday
 								</p>
 								<p>
-									<strong>Venue</strong> : University Swimming Pool 
+									<strong>Venue</strong> : University Swimming Pool
 								</p>
 								<p>
 									<strong>Time</strong> : 4.30pm
@@ -286,7 +286,10 @@ export default () => (
 
 				li div {
 					padding: 10px;
-					background-color: #0f4fd5;
+					background-color: white;
+ border: 1px solid #c8c8c8;
+    padding: 7px;
+    box-shadow: 0 2px 3px #ccc;
 				}
 
 				footer {
